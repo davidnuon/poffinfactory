@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+	<head>
+		<title>poffin factory</title>		
+		<link rel="stylesheet" href="960.css">
+		<link rel="stylesheet" href="style.css">
+
+		<script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+	</head>
+	<body id="skrollr-body">
+		<header 
+			data-0="background-color:rgba(255,255,255,.1);"
+			data-500="background-color:rgba(255,255,255,.8);"
+		>
+			<div class="container_12">
+				<div class="grid_12">
+					<h1
+						data-0="color:rgba(255,255,255,1);"
+						data-500="color:rgba(0,0,0,1);"
+					>
+						poffin factory
+					</h1>
+					<nav>
+						<ul>
+							<li><a href="#home">Home</a></li>
+							<li><a href="#events">Events</a></li>
+							<li><a href="#join">Join</a></li>
+							<li><a href="#work">Work</a></li>
+							<li><a href="#about">About</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<section class="part-1 first" id="home">
+					<div class="container_12">
+						<div class="grid_12">
+							<h2>What do you think a poffin is?</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
+						</div>
+					</div>
+				</section>
+				<section class="part-2" id="events">
+					<div class="container_12">
+						<div class="grid_12">
+							<h2>Title</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
+						</div>
+					</div>
+				</section>
+				<section class="part-3" id="join">
+					<div class="container_12">
+						<div class="grid_12">
+							<h2>Title</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
+						</div>
+					</div>
+				</section>
+				<section class="part-4" id="work">
+					<div class="container_12">
+						<div class="grid_12">
+							<h2>Title</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
+						</div>
+					</div>
+				</section>
+				<section class="part-5" id="about">
+					<div class="container_12">
+						<div class="grid_12">
+							<h2>Title</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
+						</div>
+					</div>
+				</section>		
+
+
+		<footer>
+			<div class="container_12">
+				<div class="grid_4">
+					<h3></h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, eos nemo dolores cumque id veniam. Hic, qui facere veniam explicabo voluptas delectus nulla veritatis iure amet libero nostrum quis vel.</p>
+				</div>
+				<div class="grid_4">
+					<h3></h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, eos nemo dolores cumque id veniam. Hic, qui facere veniam explicabo voluptas delectus nulla veritatis iure amet libero nostrum quis vel.</p>
+				</div>
+				<div class="grid_4">
+					<h3></h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, eos nemo dolores cumque id veniam. Hic, qui facere veniam explicabo voluptas delectus nulla veritatis iure amet libero nostrum quis vel.</p>
+				</div>
+			</div>
+		</footer>	
+
+	     <script type="text/javascript" src="js/skrollr.min.js"></script>
+	     <script type="text/javascript" src="js/waypoints.min.js"></script>
+	
+		<script>
+        var s = skrollr.init();
+
+        $('a').click(function(){
+		    $('html, body').animate({
+		        scrollTop: $( $.attr(this, 'href') ).offset().top
+		    }, 500);
+
+		    $('a').removeClass('current');
+		    $(this).addClass('current');
+		});
+
+
+		$('section').waypoint(function() {
+			$('a').removeClass('current');
+		    $('a[href=#' + $(this).attr('id') + ']').addClass('current');
+		});
+
+		</script>
+	</body>
+</html>	
