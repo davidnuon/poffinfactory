@@ -106,7 +106,7 @@
 
         $('a').click(function(){
 		    $('html, body').animate({
-		        scrollTop: $( $.attr(this, 'href') ).offset().top
+		        scrollTop: $( $.attr(this, 'href') ).offset().top - 170
 		    }, 500);
 
 		    $('a').removeClass('current');
@@ -117,7 +117,7 @@
 		$('section').waypoint(function() {
 			$('a').removeClass('current');
 		    $('a[href=#' + $(this).attr('id') + ']').addClass('current');
-		});
+ 	 	}, { offset: 165 });
 
 		</script>
 	</body>
