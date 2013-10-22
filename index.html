@@ -9,7 +9,7 @@
 	</head>
 	<body id="skrollr-body">
 		<header 
-			data-0="background-color:rgba(255,255,255,.1);"
+			data-0="background-color:rgba(255,255,255,.3);"
 			data-500="background-color:rgba(255,255,255,.8);"
 		>
 			<div class="grid-container">
@@ -105,7 +105,7 @@
 		<script>
 		$(function () {
 			var s = skrollr.init();
-			var offset = $('header').height() + 40;
+			var offset = $('header').height();
 			var $root =  $('html, body');
 
 	        $('a').click(function(){
