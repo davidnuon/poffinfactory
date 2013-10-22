@@ -113,7 +113,7 @@ footer p {
 }
 
 .part-1 {
- background: url(img/bg.jpg) #535bb5 center center no-repeat;
+ background: url(../img/bg.jpg) #535bb5 center center no-repeat;
 }
 .part-2 { background: #b93c33;}
 .part-3 { background: #63ca5a;}
