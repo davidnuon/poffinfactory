@@ -39,10 +39,10 @@
 					<div class="grid-container">
 						<div class="grid-100">
 							<h2>What do you think a poffin is?</h2>
+						<span class="point"></span>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 						</div>
-						<span class="point"></span>
 					</div>
 				</section>
 				<section class="part-2" id="events">
@@ -106,7 +106,7 @@
 		<script>
 		$(function () {
 			var s = skrollr.init();
-			var offset = 170;
+			var offset = 160;
 			var $root =  $('html, body');
 	        $('a').click(function(){
 	        	if($(this).attr('href') !== '#'){
@@ -114,19 +114,22 @@
 				        scrollTop: $( $.attr(this, 'href') ).offset().top - offset
 				    }, 500);
 
-				    $('a').removeClass('current');
-				    $(this).addClass('current');
-	        	} else {
-					$('a').removeClass('current');
 	        	}				   
 			});
 
 
 			$('section, .point').waypoint(function(d) {
-				console.log($(this).attr('id') || $(this).attr('class'));
+				var the_id    = $(this).attr('id');
+				var the_class = $(this).attr('class');
+				var the_hash  = the_id || '';
+
 				$('a').removeClass('current');
-			    $('a[href=#' + $(this).attr('id') + ']').addClass('current');
-	 	 	}, { offset: offset });
+				if(the_id){
+			    	$('a[href=#' + $(this).attr('id') + ']').addClass('current');
+				}
+			    location.hash = the_hash;
+
+	 	 	}, { offset : 150});
 
 			if(location.hash)
 			{
