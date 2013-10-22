@@ -3,7 +3,6 @@
 	<head>
 		<title>poffin factory</title>		
 		<link rel="stylesheet" href="css/unsemantic-grid-responsive.css" />
-		<link rel="stylesheet" href="css/960.css">
 		<link rel="stylesheet" href="css/style.css">
 
 		<script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
@@ -106,12 +105,13 @@
 		<script>
 		$(function () {
 			var s = skrollr.init();
-			var offset = 160;
+			var offset = $('header').height() + 40;
 			var $root =  $('html, body');
+
 	        $('a').click(function(){
 	        	if($(this).attr('href') !== '#'){
 				    $root.animate({
-				        scrollTop: $( $.attr(this, 'href') ).offset().top - offset
+				        scrollTop: $( $.attr(this, 'href') ).offset().top - offset + 10
 				    }, 500);
 
 	        	}				   
@@ -136,6 +136,13 @@
 	   			$('a[href=' + location.hash + ']').addClass('current');
 			}
 
+			$('section.first').css({'padding-top': $('header').height() + 30 + 'px'});
+
+
+			$(window).resize( function () {
+				$('section.first').css({'padding-top': $('header').height() + 30 + 'px'});
+				offset = $('header').height() + 40;
+			})
 		})
 		</script>
 	</body>

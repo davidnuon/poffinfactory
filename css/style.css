@@ -11,7 +11,7 @@ body{
 
 
 header {
-	height: 170px;
+	height: auto;
 	width: 100%;
 	background: rgba(255, 255, 255, :;);
 	box-shadow: rgba(0,0,0,.2) 0px 2px 5px;
@@ -114,8 +114,35 @@ footer p {
 
 .part-1 {
  background: url(../img/bg.jpg) #535bb5 center center no-repeat;
+ background-size: 100% auto;
 }
 .part-2 { background: #b93c33;}
 .part-3 { background: #63ca5a;}
 .part-4 { background: #62dd37;}
 .part-5 { background: #64a2e4;}
+
+
+
+
+@media only screen and (max-width : 1200px) {
+	.part-1 {
+	 background-size: auto 100%;
+	}
+
+}
+
+
+
+@media only screen and (max-width : 650px) {
+	nav ul li  {
+		display: block;
+		margin: 0 0 5px 0;
+	}
+
+	h1 {
+		font-size: 3em;
+	}
+
+}
+
+
