@@ -19,11 +19,12 @@
 						data-0="color:rgba(255,255,255,1);"
 						data-500="color:rgba(0,0,0,1);"
 					>
-						poffin factory
+						<a href="#">
+							poffin factory
+						</a>
 					</h1>
 					<nav>
 						<ul>
-							<li><a href="#home">Home</a></li>
 							<li><a href="#events">Events</a></li>
 							<li><a href="#join">Join</a></li>
 							<li><a href="#work">Work</a></li>
@@ -41,12 +42,13 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 						</div>
+						<span class="point"></span>
 					</div>
 				</section>
 				<section class="part-2" id="events">
 					<div class="grid-container">
 						<div class="grid-100">
-							<h2>Title</h2>
+							<h2>Events</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 						</div>
@@ -55,7 +57,7 @@
 				<section class="part-3" id="join">
 					<div class="grid-container">
 						<div class="grid-100">
-							<h2>Title</h2>
+							<h2>Join</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 						</div>
@@ -64,7 +66,7 @@
 				<section class="part-4" id="work">
 					<div class="grid-container">
 						<div class="grid-100">
-							<h2>Title</h2>
+							<h2>Work</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 						</div>
@@ -73,7 +75,7 @@
 				<section class="part-5" id="about">
 					<div class="grid-container">
 						<div class="grid-100">
-							<h2>Title</h2>
+							<h2>About</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ex perspiciatis excepturi magnam dolorum voluptatum distinctio est iure tempora provident! Cumque, ad ducimus est perspiciatis quos deserunt eveniet qui cum?</p>
 						</div>
@@ -102,23 +104,37 @@
 	     <script type="text/javascript" src="js/waypoints.min.js"></script>
 	
 		<script>
-        var s = skrollr.init();
+		$(function () {
+			var s = skrollr.init();
+			var offset = 170;
+			var $root =  $('html, body');
+	        $('a').click(function(){
+	        	if($(this).attr('href') !== '#'){
+				    $root.animate({
+				        scrollTop: $( $.attr(this, 'href') ).offset().top - offset
+				    }, 500);
 
-        $('a').click(function(){
-		    $('html, body').animate({
-		        scrollTop: $( $.attr(this, 'href') ).offset().top - 170
-		    }, 500);
-
-		    $('a').removeClass('current');
-		    $(this).addClass('current');
-		});
+				    $('a').removeClass('current');
+				    $(this).addClass('current');
+	        	} else {
+					$('a').removeClass('current');
+	        	}				   
+			});
 
 
-		$('section').waypoint(function() {
-			$('a').removeClass('current');
-		    $('a[href=#' + $(this).attr('id') + ']').addClass('current');
- 	 	}, { offset: 165 });
+			$('section, .point').waypoint(function(d) {
+				console.log($(this).attr('id') || $(this).attr('class'));
+				$('a').removeClass('current');
+			    $('a[href=#' + $(this).attr('id') + ']').addClass('current');
+	 	 	}, { offset: offset });
 
+			if(location.hash)
+			{
+				$('a').addClass('current');
+	   			$('a[href=' + location.hash + ']').addClass('current');
+			}
+
+		})
 		</script>
 	</body>
 </html>	
